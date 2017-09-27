@@ -1,0 +1,9 @@
+{
+  "name": "minds",
+  "version": "0.1.0",
+  "description": "Common UI state",
+  "main": "index.js",
+  "repository": "https://github.com/RoyalIcing/minds.git",
+  "author": "Patrick Smith <patrick@burntcaramel.com>",
+  "license": "MIT"
+}
