@@ -18,32 +18,38 @@ export const jumpNext = () => ({ currentIndex, loadedItems: { length } }) => ({
   currentIndex: (currentIndex + 1) % length
 })
 
-const offsetTo = (newOffset) => ({
-  loadedItems: { length }
-}) => {
-  const offsetFraction = (newOffset + length) % length
-  const currentIndex = Math.floor(offsetFraction + 0.5)
-  return { offsetFraction, currentIndex }
-}
-
-export function * next({ offsetFraction }) {
-  let offset = offsetFraction
-  let change = 0
+export function * next() {
+  let stop = false
   do {
-    change = Math.min(1.0, change + 0.07)
-    yield offsetTo(offset + change)
-  } while (change < 1.0)
-
-  yield offsetTo(Math.floor(offset + 0.5) + 1)
+    yield ({
+      offsetFraction,
+      loadedItems: { length }
+    }) => {
+      let newOffset = (offsetFraction + 0.06)
+      stop = Math.floor(newOffset) > Math.floor(offsetFraction)
+      if (stop) {
+        newOffset = Math.floor(newOffset)
+      }
+      newOffset = (newOffset + length) % length
+      return { offsetFraction: newOffset }
+    }
+  } while (!stop)
 }
 
 export function * previous({ offsetFraction }) {
-  let offset = offsetFraction
-  let change = 0
+  let stop = false
   do {
-    change = Math.min(1.0, change + 0.07)
-    yield offsetTo(offset - change)
-  } while (change < 1.0)
-
-  yield offsetTo(Math.floor(offset + 0.5) - 1)
+    yield ({
+      offsetFraction,
+      loadedItems: { length }
+    }) => {
+      let newOffset = (offsetFraction - 0.06)
+      stop = Math.ceil(newOffset) < Math.ceil(offsetFraction)
+      if (stop) {
+        newOffset = Math.ceil(newOffset)
+      }
+      newOffset = (newOffset + length) % length
+      return { offsetFraction: newOffset }
+    }
+  } while (!stop)
 }
