@@ -1,9 +1,28 @@
 {
   "name": "minds",
   "version": "0.1.0",
-  "description": "Common UI state",
-  "main": "index.js",
-  "repository": "https://github.com/RoyalIcing/minds.git",
-  "author": "Patrick Smith <patrick@burntcaramel.com>",
-  "license": "MIT"
+  "description": "State handlers for common UI",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-web-module",
+    "clean": "nwb clean-module",
+    "dev": "nwb serve-react-app ./demo-react/src",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nwb": "^0.19.0"
+  },
+  "author": "",
+  "homepage": "",
+  "license": "MIT",
+  "repository": ""
 }

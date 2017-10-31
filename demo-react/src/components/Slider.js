@@ -26,7 +26,7 @@ const Slider = ({
         display: 'flex',
         flexWrap: 'nowrap',
         position: 'relative',
-        left: inspect(`${(offsetFraction) * -100}%`, { currentIndex, offsetFraction }),
+        left: `${(offsetFraction) * -100}%`, //inspect(`${(offsetFraction) * -100}%`, { currentIndex, offsetFraction }),
         width: `${ (items.length + 1) * 100}%`
       }}
     >
