@@ -5157,9 +5157,9 @@ react-error-overlay@^2.0.2:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
-react-organism@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/react-organism/-/react-organism-0.2.1.tgz#6ee9ece048f9086b8924b70566f65ecec4ba3849"
+react-organism@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/react-organism/-/react-organism-0.3.2.tgz#a98fb1678ca56fc76fda81bc05027a031f96271c"
 
 react-scripts@1.0.14:
   version "1.0.14"
